@@ -3,12 +3,13 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: black; /* Black background */
-    color: white; /* White text for contrast */
+    background-color: black;
+    color: white;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #main-page, .game-page {
@@ -18,21 +19,28 @@ body {
 }
 
 button {
-    margin: 20px; /* Increased margin for bigger spacing */
-    padding: 20px 40px; /* Bigger padding for larger buttons */
-    font-size: 24px; /* Larger font size */
-    color: white; /* White text */
-    background-color: #333; /* Dark gray background for buttons */
+    margin: 20px;
+    padding: 20px 40px;
+    font-size: 24px;
+    color: white;
+    background-color: #333;
     border: none;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
+    transition: background-color 0.3s ease;
 }
 
-    button:hover {
-        background-color: #555; /* Lighter gray on hover */
-    }
+button:hover {
+    background-color: #555;
+}
 
 .game-page {
     display: none;
+}
+
+input {
+    margin: 20px;
+    padding: 10px;
+    font-size: 18px;
+    width: 200px;
 }
