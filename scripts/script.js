@@ -1,143 +1,40 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Load names from localStorage or initialize empty arrays
-    let menNames = JSON.parse(localStorage.getItem('menNames')) || ["Fabi",
-        "Maiu",
-        "Neagoe",
-        "Alec",
-        "Robert Marinescu",
-        "Dante",
-        "Stângă",
-        "Gabi Alexandrescu",
-        "Tudi",
-        "Alex Trandafir",
-        "Paul Box",
-        "Alioșa",
-        "Alex Panait",
-        "Gabi Buzescu",
-        "Vlad Popa",
-        "Cristi Radu",
-        "Silvestru",
-        "Sebi Iacob",
-        "Yeti",
-        "Bogdan Gătitu",
-        "Andrei Neacșu",
-        "Floco",
-        "Marin",
-        "Răzvan Gheorghe",
-        "Dragoș Stănciulescu",
-        "Theo Duca",
-        "Radu Cucoaneș",
-        "Dănilă",
-        "Sahim",
-        "Alex Roma",
-        "Abdallah",
-        "Piti",
-        "Soke",
-        "David Pentelei",
-        "Gabi Buzescu",
-        "Voicu",
-        "Dorde",
-        "Puiu",
-        "Ivă",
-        "Matei Lascu",
-        "Pascu",
-        "Rareș Roșu",
-        "Raul Răduță",
-        "Jumi",
-        "Bădici",
-        "Debu",
-        "Caragea",
-        "Andu",
-        "Dragoș Viuleț",
-        "Tavi",
-        "Cosmin Carșote",
-        "Mihai Lidl",
-        "Dochianu",
-        "Profira",
-        "Sima",
-        "Simi",
-        "Vîlcu",
-        "Mandu",
-        "Țăranu",
-        "Iustin",
-        "George Stoian",
-        "Păduraru",
-        "fratele lu Păduraru",
-        "Zamfi",
-        "Vini",
-        "Luca Hara",
-        "Șerban",
-        "Mihnea Tomescu",
-        "Robi Chinezu",
-        "Alex Voicu",
-        "Cozadin",
-        "Mihnea Iancu",
-        "Nejloveanu",
-        "Papote",
-        "Alin Tihnea",
-        "Alin Ionescu",
-        "Luca Tatomir",
-        "Lucan",
-        "Mihnea",
-        "Sarafoleanu",
-        "Tudor Mavrodin",
-        "Andrei Mavrodin",
-        "Andrei Toader",
-        "Alex Toader",
-        "Iulian Lisnic",
-        "Alex Morcov",
-        "Răzvan Gogan",
-        "Baboi",
-        "Mihnea Ioachim"];
-    let womenNames = JSON.parse(localStorage.getItem('womenNames')) || ["Mara",
-        "Patri",
-        "Soranna",
-        "Ana Uceanu",
-        "Paola",
-        "Anca Dobre",
-        "Eva",
-        "Sabina",
-        "Carla",
-        "Claudia",
-        "Maria Lăzărescu",
-        "Maria Magheru",
-        "Alexia Gabriela",
-        "Flavia",
-        "Maria Tănase",
-        "Teo Tomescu",
-        "Iorga",
-        "Răcaru",
-        "Andreea Bak",
-        "Anda Criț",
-        "Arina",
-        "Cozmina",
-        "Rahela",
-        "Kritikoasa",
-        "Ioana CB",
-        "Roberta",
-        "Ana Mitrofan",
-        "Ana Ivășchescu",
-        "Brighi",
-        "Pui",
-        "Ioana Floco",
-        "Maria Iftemie",
-        "Karina",
-        "Alexandra Mandu",
-        "Ioana Profira",
-        "Lili",
-        "Irina Benchescu",
-        "Terez"];
+    // Arrays of names (provided by you)
+    const menNames = [
+        "Fabi", "Maiu", "Neagoe", "Alec", "Robert Marinescu", "Dante", "Stângă", "Gabi Alexandrescu",
+        "Tudi", "Alex Trandafir", "Paul Box", "Alioșa", "Alex Panait", "Gabi Buzescu", "Vlad Popa",
+        "Cristi Radu", "Silvestru", "Sebi Iacob", "Yeti", "Bogdan Gătitu", "Andrei Neacșu", "Floco",
+        "Marin", "Răzvan Gheorghe", "Dragoș Stănciulescu", "Theo Duca", "Radu Cucoaneș", "Dănilă",
+        "Sahim", "Alex Roma", "Abdallah", "Piti", "Soke", "David Pentelei", "Gabi Buzescu", "Voicu",
+        "Dorde", "Puiu", "Ivă", "Matei Lascu", "Pascu", "Rareș Roșu", "Raul Răduță", "Jumi", "Bădici",
+        "Debu", "Caragea", "Andu", "Dragoș Viuleț", "Tavi", "Cosmin Carșote", "Mihai Lidl", "Dochianu",
+        "Profira", "Sima", "Simi", "Vîlcu", "Mandu", "Țăranu", "Iustin", "George Stoian", "Păduraru",
+        "fratele lu Păduraru", "Zamfi", "Vini", "Luca Hara", "Șerban", "Mihnea Tomescu", "Robi Chinezu",
+        "Alex Voicu", "Cozadin", "Mihnea Iancu", "Nejloveanu", "Papote", "Alin Tihnea", "Alin Ionescu",
+        "Luca Tatomir", "Lucan", "Mihnea", "Sarafoleanu", "Tudor Mavrodin", "Andrei Mavrodin",
+        "Andrei Toader", "Alex Toader", "Iulian Lisnic", "Alex Morcov", "Răzvan Gogan", "Baboi",
+        "Mihnea Ioachim"
+    ];
+
+    const womenNames = [
+        "Mara", "Patri", "Soranna", "Ana Uceanu", "Paola", "Anca Dobre", "Eva", "Sabina", "Carla",
+        "Claudia", "Maria Lăzărescu", "Maria Magheru", "Alexia Gabriela", "Flavia", "Maria Tănase",
+        "Teo Tomescu", "Iorga", "Răcaru", "Andreea Bak", "Anda Criț", "Arina", "Cozmina", "Rahela",
+        "Kritikoasa", "Ioana CB", "Roberta", "Ana Mitrofan", "Ana Ivășchescu", "Brighi", "Pui",
+        "Ioana Floco", "Maria Iftemie", "Karina", "Alexandra Mandu", "Ioana Profira", "Lili",
+        "Irina Benchescu", "Terez"
+    ];
 
     const mainPage = document.getElementById('main-page');
     const fmkPage = document.getElementById('fmk-page');
     const wwycPage = document.getElementById('wwyc-page');
-    const addNamePage = document.getElementById('add-name-page');
 
     const fmkNamesDiv = document.getElementById('fmk-names');
     const wwycNamesDiv = document.getElementById('wwyc-names');
-    const newNameInput = document.getElementById('new-name');
 
     let currentGame = null;
+    let currentGender = null; // Track the selected gender
+    let currentNamesArray = []; // Track the current names array
 
     // Main page buttons
     document.getElementById('fmk-button').addEventListener('click', function () {
@@ -150,37 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
         currentGame = 'wwyc';
         mainPage.style.display = 'none';
         showGenderSelection();
-    });
-
-    document.getElementById('add-name-button').addEventListener('click', function () {
-        mainPage.style.display = 'none';
-        addNamePage.style.display = 'block';
-    });
-
-    // Add name page buttons
-    document.getElementById('add-men').addEventListener('click', function () {
-        const name = newNameInput.value.trim();
-        if (name) {
-            menNames.push(name);
-            localStorage.setItem('menNames', JSON.stringify(menNames)); // Save to localStorage
-            newNameInput.value = ''; // Clear the input field
-            alert(`Added "${name}" to Men.`);
-        }
-    });
-
-    document.getElementById('add-women').addEventListener('click', function () {
-        const name = newNameInput.value.trim();
-        if (name) {
-            womenNames.push(name);
-            localStorage.setItem('womenNames', JSON.stringify(womenNames)); // Save to localStorage
-            newNameInput.value = ''; // Clear the input field
-            alert(`Added "${name}" to Women.`);
-        }
-    });
-
-    document.getElementById('add-name-back').addEventListener('click', function () {
-        addNamePage.style.display = 'none';
-        mainPage.style.display = 'block';
     });
 
     // Gender selection page
@@ -206,17 +72,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Gender selection buttons
         document.getElementById('men-button').addEventListener('click', function () {
-            selectNames(menNames);
+            currentGender = 'men'; // Set the selected gender
+            currentNamesArray = menNames; // Set the current names array
+            selectNames(currentNamesArray);
             genderPage.remove();
         });
 
         document.getElementById('women-button').addEventListener('click', function () {
-            selectNames(womenNames);
+            currentGender = 'women'; // Set the selected gender
+            currentNamesArray = womenNames; // Set the current names array
+            selectNames(currentNamesArray);
             genderPage.remove();
         });
 
         document.getElementById('mix-button').addEventListener('click', function () {
-            selectNames([...menNames, ...womenNames]);
+            currentGender = 'mixed'; // Set the selected gender
+            currentNamesArray = [...menNames, ...womenNames]; // Combine both arrays
+            selectNames(currentNamesArray);
             genderPage.remove();
         });
 
@@ -255,11 +127,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Re-do buttons
     document.getElementById('fmk-redo').addEventListener('click', function () {
-        selectFmkNames([...menNames, ...womenNames]);
+        selectFmkNames(currentNamesArray); // Use the current names array
     });
 
     document.getElementById('wwyc-redo').addEventListener('click', function () {
-        selectWwycNames([...menNames, ...womenNames]);
+        selectWwycNames(currentNamesArray); // Use the current names array
     });
 
     // Back buttons
