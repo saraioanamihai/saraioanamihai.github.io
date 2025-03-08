@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menNames = ["Fabi",
+    let menNames = ["Fabi",
         "Maiu",
         "Neagoe",
         "Alec",
@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
         "Alex Morcov",
         "Răzvan Gogan",
         "Baboi",
-        "Mihnea Ioachim"]; // Array for men's names
-    const womenNames = ["Mara",
+        "Mihnea Ioachim"]];
+    let womenNames = ["Mara",
 "Patri",
 "Soranna",
 "Ana Uceanu",
@@ -125,14 +125,16 @@ document.addEventListener('DOMContentLoaded', function() {
 "Ioana Profira",
 "Lili",
 "Irina Benchescu",
-"Terez"]; // Array for women's names
+"Terez"];
 
     const mainPage = document.getElementById('main-page');
     const fmkPage = document.getElementById('fmk-page');
     const wwycPage = document.getElementById('wwyc-page');
+    const addNamePage = document.getElementById('add-name-page');
 
     const fmkNamesDiv = document.getElementById('fmk-names');
     const wwycNamesDiv = document.getElementById('wwyc-names');
+    const newNameInput = document.getElementById('new-name');
 
     let currentGame = null;
 
@@ -146,6 +148,32 @@ document.addEventListener('DOMContentLoaded', function() {
         currentGame = 'wwyc';
         mainPage.style.display = 'none';
         showGenderSelection();
+    });
+
+    document.getElementById('add-name-button').addEventListener('click', function() {
+        mainPage.style.display = 'none';
+        addNamePage.style.display = 'block';
+    });
+
+    document.getElementById('add-men').addEventListener('click', function() {
+        const name = newNameInput.value.trim();
+        if (name) {
+            menNames.push(name);
+            newNameInput.value = ''; // Clear the input field
+        }
+    });
+
+    document.getElementById('add-women').addEventListener('click', function() {
+        const name = newNameInput.value.trim();
+        if (name) {
+            womenNames.push(name);
+            newNameInput.value = ''; // Clear the input field
+        }
+    });
+
+    document.getElementById('add-name-back').addEventListener('click', function() {
+        addNamePage.style.display = 'none';
+        mainPage.style.display = 'block';
     });
 
     function showGenderSelection() {
