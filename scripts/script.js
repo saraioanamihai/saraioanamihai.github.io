@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
         "Marin", "Răzvan Gheorghe", "Dragoș Stănciulescu", "Theo Duca", "Radu Cucoaneș", "Dănilă",
         "Sahim", "Alex Roma", "Abdallah", "Piti", "Soke", "David Pentelei", "Gabi Buzescu", "Voicu",
         "Dorde", "Puiu", "Ivă", "Matei Lascu", "Pascu", "Rareș Roșu", "Raul Răduță", "Jumi", "Bădici",
-        "Debu", "Caragea", "Andu", "Dragoș Viuleț", "Tavi", "Cosmin Carșote", "Mihai Lidl", "Dochianu",
+        "Ștefey", "Caragea", "Andu", "Dragoș Viuleț", "Tavi", "Cosmin Carșote", "Mihai Lidl", "Dochianu",
         "Profira", "Sima", "Simi", "Vîlcu", "Mandu", "Țăranu", "Iustin", "George Stoian", "Păduraru",
         "fratele lu Păduraru", "Zamfi", "Vini", "Luca Hara", "Șerban", "Mihnea Tomescu", "Robi Chinezu",
         "Alex Voicu", "Cozadin", "Mihnea Iancu", "Nejloveanu", "Papote", "Alin Tihnea", "Alin Ionescu",
         "Luca Tatomir", "Lucan", "Mihnea", "Sarafoleanu", "Tudor Mavrodin", "Andrei Mavrodin",
         "Andrei Toader", "Alex Toader", "Iulian Lisnic", "Alex Morcov", "Răzvan Gogan", "Baboi",
-        "Mihnea Ioachim"
+        "Mihnea Ioachim", "Ezekel"
     ];
 
     const womenNames = [
