@@ -6,14 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
         "Cristi Radu", "Silvestru", "Sebi Iacob", "Yeti", "Bogdan Gătitu", "Andrei Neacșu", "Floco",
         "Marin", "Răzvan Gheorghe", "Dragoș Stănciulescu", "Theo Duca", "Radu Cucoaneș", "Dănilă",
         "Sahim", "Alex Roma", "Abdallah", "Piti", "Soke", "David Pentelei", "Gabi Buzescu", "Voicu",
-        "Dorde", "Puiu", "Ivă", "Matei Lascu", "Pascu", "Rareș Roșu", "Raul Răduță", "Jumi", "Bădici",
+        "Dorde", "Puiu", "Ivă", "Matei Lascu", "Pascu", "Rareș Roșu", "Raul Răduță", "Jumi", "Tudor Vasilescu",
+        "Tudor Apopei", "Roberto", "Bădici",
         "Ștefey", "Caragea", "Andu", "Dragoș Viuleț", "Tavi", "Cosmin Carșote", "Mihai Lidl", "Dochianu",
         "Profira", "Sima", "Simi", "Vîlcu", "Mandu", "Țăranu", "Iustin", "George Stoian", "Păduraru",
-        "fratele lu Păduraru", "Zamfi", "Vini", "Luca Hara", "Șerban", "Mihnea Tomescu", "Robi Chinezu",
-        "Alex Voicu", "Cozadin", "Mihnea Iancu", "Nejloveanu", "Papote", "Alin Tihnea", "Alin Ionescu",
+        "fratele lu Păduraru", "Zanfi", "Vini", "Luca Hara", "Șerban", "Mihnea Tomescu", "Robi Chinezu",
+        "Luca Voicu", "Cozadin", "Mihnea Iancu", "Nejloveanu", "Papote", "Alin Tihnea", "Alin Ionescu",
         "Luca Tatomir", "Lucan", "Mihnea", "Sarafoleanu", "Tudor Mavrodin", "Andrei Mavrodin",
         "Andrei Toader", "Alex Toader", "Iulian Lisnic", "Alex Morcov", "Răzvan Gogan", "Baboi",
-        "Mihnea Ioachim", "Ezekel"
+        "Mihnea Ioachim", "Ezekel", "Rareș Căutiș", "Palisandru", "Elisei", "Radu Ștefan", "Kolea",
+        "Virgil Munteanu", "Broască", "David Buzatu", "Dragoș îmibagpulanmăta", "Fane", "Dimi(roacherul)",
+        "Petre Dumitrescu", "Victoraș future husband", "Mihnea G", "Corny", "Manu", "Octi", "Cosmin Ioan"
     ];
 
     const womenNames = [
@@ -22,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
         "Teo Tomescu", "Iorga", "Răcaru", "Andreea Bak", "Anda Criț", "Arina", "Cozmina", "Rahela",
         "Kritikoasa", "Ioana CB", "Roberta", "Ana Mitrofan", "Ana Ivășchescu", "Brighi", "Pui",
         "Ioana Floco", "Maria Iftemie", "Karina", "Alexandra Mandu", "Ioana Profira", "Lili",
-        "Irina Benchescu", "Terez"
+        "Irina Benchescu", "Terez", "Claudia Drăniceanu", "Alexa", "Gabi Vădeanu", "Antonia Ștefan", 
+        "Maria Cristea", "Șerbeski", "SexyBeLike", "Silvia", "Maya Ulkusal", "Iasmina", "Sonia"
     ];
 
     const mainPage = document.getElementById('main-page');
