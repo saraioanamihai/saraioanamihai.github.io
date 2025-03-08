@@ -39,9 +39,9 @@ button {
     transition: background-color 0.3s ease;
 }
 
-    button:hover {
-        background-color: #555; /* Lighter gray on hover */
-    }
+button:hover {
+    background-color: #555; /* Lighter gray on hover */
+}
 
 /* Game pages (hidden by default) */
 .game-page {
@@ -54,4 +54,29 @@ button {
     font-weight: bold; /* Bold text */
     margin: 20px 0; /* Add some spacing */
     color: white; /* Ensure the text is white */
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 600px) {
+    /* Adjust button sizes for smaller screens */
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    /* Adjust font sizes for names */
+    #fmk-names, #wwyc-names {
+        font-size: 24px;
+    }
+
+    /* Stack buttons vertically on small screens */
+    .button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Reduce margins for better spacing */
+    body {
+        padding: 10px;
+    }
 }
