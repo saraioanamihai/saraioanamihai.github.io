@@ -83,7 +83,11 @@
         "Andrei Mavrodin",
         "Andrei Toader",
         "Alex Toader",
-        "Iulian Lisnic"]; // Names array
+        "Iulian Lisnic",
+        "Alex Morcov",
+        "Răzvan Gogan",
+        "Baboi",
+        "Mihnea Ioachim"]; // Names array
 
     const mainPage = document.getElementById('main-page');
     const fmkPage = document.getElementById('fmk-page');
