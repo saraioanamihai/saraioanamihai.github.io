@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
         "Kritikoasa", "Ioana CB", "Roberta", "Ana Mitrofan", "Ana Ivășchescu", "Brighi", "Pui",
         "Ioana Floco", "Maria Iftemie", "Karina", "Alexandra Mandu", "Ioana Profira", "Lili",
         "Irina Benchescu", "Terez", "Claudia Drăniceanu", "Alexa", "Gabi Vădeanu", "Antonia Ștefan", 
-        "Maria Cristea", "Șerbeski", "SexyBeLike", "Silvia", "Maya Ulkusal", "Iasmina", "Sonia"
+        "Maria Cristea", "Șerbeski", "SexyBeLike", "Silvia", "Maya Ulkusal", "Iasmina", "Sonia",
+        "Lexa"
     ];
 
     const mainPage = document.getElementById('main-page');
