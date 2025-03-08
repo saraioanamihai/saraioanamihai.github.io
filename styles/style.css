@@ -43,44 +43,10 @@ button {
         background-color: #555; /* Lighter gray on hover */
     }
 
-/* Smaller button for "ADD NAME" */
-#add-name-button {
-    padding: 10px 20px;
-    font-size: 18px;
-}
-
 /* Game pages (hidden by default) */
 .game-page {
     display: none;
 }
-
-/* Input field styling */
-input {
-    margin: 20px;
-    padding: 10px;
-    font-size: 18px;
-    width: 200px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    background-color: #222;
-    color: white;
-}
-
-/* Gender selection page styling */
-.gender-selection-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-    .gender-selection-page .button-row {
-        margin-bottom: 20px; /* Space between the button row and the back button */
-    }
-
-    .gender-selection-page #gender-back {
-        padding: 10px 20px;
-        font-size: 18px;
-    }
 
 /* Style for the names displayed in the games */
 #fmk-names, #wwyc-names {
