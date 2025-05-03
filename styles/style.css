@@ -20,13 +20,28 @@ body {
     align-items: center;
 }
 
-.button-row {
+/* Gender selection page */
+.gender-selection-page {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between buttons */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.gender-selection-page h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #ff6b6b;
 }
 
 /* Button styling */
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 button {
     margin: 10px;
     padding: 20px 40px;
@@ -36,47 +51,75 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #555; /* Lighter gray on hover */
+    transform: scale(1.05);
 }
 
-/* Game pages (hidden by default) */
+.gender-button {
+    background-color: #4a69bd;
+}
+
+.gender-button:hover {
+    background-color: #6a89cc;
+}
+
+.celeb-button {
+    background-color: #8e44ad;
+}
+
+.celeb-button:hover {
+    background-color: #9b59b6;
+}
+
+.back-button {
+    background-color: #e55039;
+}
+
+.back-button:hover {
+    background-color: #eb2f06;
+}
+
+/* Game pages */
 .game-page {
     display: none;
 }
 
-/* Style for the names displayed in the games */
+/* Names display */
 #fmk-names, #wwyc-names {
-    font-size: 32px; /* Larger font size */
-    font-weight: bold; /* Bold text */
-    margin: 20px 0; /* Add some spacing */
-    color: white; /* Ensure the text is white */
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: white;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Media queries for mobile devices */
+/* Media queries for mobile */
 @media (max-width: 600px) {
-    /* Adjust button sizes for smaller screens */
     button {
         padding: 15px 30px;
         font-size: 18px;
     }
 
-    /* Adjust font sizes for names */
     #fmk-names, #wwyc-names {
         font-size: 24px;
     }
 
-    /* Stack buttons vertically on small screens */
     .button-row {
         flex-direction: column;
         gap: 10px;
     }
 
-    /* Reduce margins for better spacing */
     body {
         padding: 10px;
+    }
+    
+    .gender-selection-page h2 {
+        font-size: 22px;
     }
 }
