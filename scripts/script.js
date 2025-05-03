@@ -30,16 +30,29 @@ document.addEventListener('DOMContentLoaded', function () {
         "Lexa", "Banciu"
     ];
 
+    const celebrityNames = [
+        "Brad Pitt", "Angelina Jolie", "Tom Cruise", "Jennifer Aniston",
+        "Leonardo DiCaprio", "Dwayne Johnson", "Beyoncé", "Taylor Swift",
+        "Cristiano Ronaldo", "Lionel Messi", "Emma Watson", "Robert Downey Jr.",
+        "Scarlett Johansson", "Chris Hemsworth", "Selena Gomez", "Ariana Grande",
+        "Justin Bieber", "Kim Kardashian", "Kanye West", "Drake",
+        "Billie Eilish", "The Rock", "Kevin Hart", "Ryan Reynolds",
+        "Johnny Depp", "Will Smith", "Margot Robbie", "Gal Gadot",
+        "Gheorghe Hagi", "Inna", "Simona Halep", "Edward Maya"
+    ];
+
+    // DOM elements
     const mainPage = document.getElementById('main-page');
     const fmkPage = document.getElementById('fmk-page');
     const wwycPage = document.getElementById('wwyc-page');
-
     const fmkNamesDiv = document.getElementById('fmk-names');
     const wwycNamesDiv = document.getElementById('wwyc-names');
 
+    // Game state
     let currentGame = null;
-    let currentGender = null; // Track the selected gender
-    let currentNamesArray = []; // Track the current names array
+    let currentGender = null;
+    let currentNamesArray = [];
+    let usedNames = new Set();
 
     // Main page buttons
     document.getElementById('fmk-button').addEventListener('click', function () {
@@ -58,95 +71,104 @@ document.addEventListener('DOMContentLoaded', function () {
     function showGenderSelection() {
         const genderPage = document.createElement('div');
         genderPage.className = 'gender-selection-page';
+        genderPage.innerHTML = `
+        <h2>Select Category</h2>
+        <div class="button-row">
+            <button id="men-button" class="gender-button">MEN</button>
+            <button id="women-button" class="gender-button">WOMEN</button>
+            <button id="mix-button" class="gender-button">MIXED</button>
+            <button id="celeb-button" class="celeb-button">CELEBRITIES</button>
+        </div>
+        <button id="gender-back" class="back-button">Back to Main</button>
+    `;
 
-        const buttonRow = document.createElement('div');
-        buttonRow.className = 'button-row';
-        buttonRow.innerHTML = `
-            <button id="men-button">MEN</button>
-            <button id="women-button">WOMEN</button>
-            <button id="mix-button">MIXED</button>
-        `;
-
-        const backButton = document.createElement('button');
-        backButton.id = 'gender-back';
-        backButton.textContent = 'Back to Main';
-
-        genderPage.appendChild(buttonRow);
-        genderPage.appendChild(backButton);
         document.body.appendChild(genderPage);
 
         // Gender selection buttons
         document.getElementById('men-button').addEventListener('click', function () {
-            currentGender = 'men'; // Set the selected gender
-            currentNamesArray = menNames; // Set the current names array
-            selectNames(currentNamesArray);
-            genderPage.remove();
+            selectGender('men', menNames);
         });
 
         document.getElementById('women-button').addEventListener('click', function () {
-            currentGender = 'women'; // Set the selected gender
-            currentNamesArray = womenNames; // Set the current names array
-            selectNames(currentNamesArray);
-            genderPage.remove();
+            selectGender('women', womenNames);
         });
 
         document.getElementById('mix-button').addEventListener('click', function () {
-            currentGender = 'mixed'; // Set the selected gender
-            currentNamesArray = [...menNames, ...womenNames]; // Combine both arrays
-            selectNames(currentNamesArray);
-            genderPage.remove();
+            selectGender('mixed', [...menNames, ...womenNames]);
         });
 
-        // Back to main button
-        backButton.addEventListener('click', function () {
+        document.getElementById('celeb-button').addEventListener('click', function () {
+            selectGender('celebrities', celebrityNames);
+        });
+
+        // Back button
+        document.getElementById('gender-back').addEventListener('click', function () {
             genderPage.remove();
-            mainPage.style.display = 'block';
+            mainPage.style.display = 'flex';
         });
     }
 
-    // Select names for the game
-    function selectNames(namesArray) {
+    function selectGender(gender, namesArray) {
+        currentGender = gender;
+        currentNamesArray = namesArray;
+        usedNames.clear();
+
+        document.querySelector('.gender-selection-page').remove();
+
         if (currentGame === 'fmk') {
             fmkPage.style.display = 'block';
-            selectFmkNames(namesArray);
-        } else if (currentGame === 'wwyc') {
+            selectFmkNames();
+        } else {
             wwycPage.style.display = 'block';
-            selectWwycNames(namesArray);
+            selectWwycNames();
         }
     }
 
-    function selectFmkNames(namesArray) {
-        const selectedNames = getRandomNames(namesArray, 3); // Pull 3 names for FMK
+    function selectFmkNames() {
+        const availableNames = currentNamesArray.filter(name => !usedNames.has(name));
+
+        if (availableNames.length < 3) {
+            alert("Not enough unique names available! Resetting...");
+            usedNames.clear();
+            return selectFmkNames();
+        }
+
+        const selectedNames = getRandomNames(availableNames, 3);
         fmkNamesDiv.innerHTML = selectedNames.join('<br>');
+        selectedNames.forEach(name => usedNames.add(name));
     }
 
-    function selectWwycNames(namesArray) {
-        const selectedNames = getRandomNames(namesArray, 2); // Pull 2 names for WWYC
+    function selectWwycNames() {
+        const availableNames = currentNamesArray.filter(name => !usedNames.has(name));
+
+        if (availableNames.length < 2) {
+            alert("Not enough unique names available! Resetting...");
+            usedNames.clear();
+            return selectWwycNames();
+        }
+
+        const selectedNames = getRandomNames(availableNames, 2);
         wwycNamesDiv.innerHTML = selectedNames.join('<br>');
+        selectedNames.forEach(name => usedNames.add(name));
     }
 
     function getRandomNames(namesArray, count) {
-        const shuffled = namesArray.sort(() => 0.5 - Math.random());
+        const shuffled = [...namesArray].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     }
 
     // Re-do buttons
-    document.getElementById('fmk-redo').addEventListener('click', function () {
-        selectFmkNames(currentNamesArray); // Use the current names array
-    });
-
-    document.getElementById('wwyc-redo').addEventListener('click', function () {
-        selectWwycNames(currentNamesArray); // Use the current names array
-    });
+    document.getElementById('fmk-redo').addEventListener('click', selectFmkNames);
+    document.getElementById('wwyc-redo').addEventListener('click', selectWwycNames);
 
     // Back buttons
     document.getElementById('fmk-back').addEventListener('click', function () {
         fmkPage.style.display = 'none';
-        mainPage.style.display = 'block';
+        mainPage.style.display = 'flex';
     });
 
     document.getElementById('wwyc-back').addEventListener('click', function () {
         wwycPage.style.display = 'none';
-        mainPage.style.display = 'block';
+        mainPage.style.display = 'flex';
     });
 });
